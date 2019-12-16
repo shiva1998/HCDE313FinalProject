@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>FlickrAPIHW7</title>
+</head>
+<body>
+
+<table class="tg">
+  <tr>
+    <th>
+        <form action="gresponse" method="get">
+            <label for="username">Please enter a song and artist:</label>
+            <input type="text" id="songname" name="songname" />
+            <input type="text" id="artistname" name="artistname" />
+            <input type="submit" value="Go" name="gobtn"/>
+        </form>
+
+    </th>
+    <th>
+        {% if prompt %}
+        <div class= 'formtitle'>{{prompt}}</div>
+        {% else %}
+        <h2><u>Lyrics</u></h2>
+        <h5> {{lyr}}</h5>
+        <h2><u>Pictures</u></h2>
+            {% for url in urls %}
+                <img src = "{{url.photo_url}}"></img>
+            {% endfor %}
+        <br>
+        <h2><u>Top Songs</u></h2>
+            {% for song in top %}
+                <h5>{{song}}</h5>
+            {% endfor %}
+        {% endif %}
+    </th>
+  </tr>
+</table>
+</body>
+</html>
